@@ -1,2 +1,2 @@
 # Excel_POWER_QUERY
-echo # Excel_POWER_QUERY >> README.md
+  Excel Power Tools: Power Query, Power Pivot, and the dynamic M Language.
