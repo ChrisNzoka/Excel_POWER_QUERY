@@ -1,0 +1,120 @@
+Getting Started and Loading Data
+
+A newly hired data analyst at a healthcare organization that collects and assesses various types of health system data.
+
+The boss already provided various datasets and files that must be organized to prepare for eventual analysis.
+One of the datasets, dailycensus_7665.xlsx, is an Excel file that lists daily activity volumes by hospital ID.
+
+Our first task will be to load this file into Power Query and assess its contents.
+
+Step 1: Open an Excel workbook and launch the Power Query editor.
+
+Step 2: Load the dailycensus_7665.xlsx Excel file (sheet dailycensus) into Power Query.
+
+Step 3: The column headers need to be corrected. Use the Remove Rows feature in the Home ribbon to remove the first row.
+
+Step 4: Next, you need to make the column headers correctly display their name by selecting 'Use First Row as Headers' from the 'Transform section' of the "Home ribbon" tab.
+
+Step 5: Now, update the effective_date field to type Date.
+
+Note: If a "Change Column Type" pop-up appears, select "Replace Current".
+
+Step 6: We can sort rows by clicking the arrow next to the column header. Sort effective_date in descending order.
+
+
+
+Managing Columns
+
+More data files are coming our way.
+This time, we have been asked to load a file on drug administrations and set it up for a quick ad-hoc analysis of prescription dates by doctor.
+
+The steps will fill us in with the details on which fields to keep and load into the workbook.
+
+Note:
+Suppose we are opening an existing workbook from a folder at any point during the course.
+In that case, we must authenticate the external data source connection once the Power Query editor is opened.
+
+With a data connection selected in the Queries panel, click on Edit Credentials in the yellow warning.
+An Access Web content window will appear. Click Connect with the Anonymous option selected.
+ 
+Note: If working on macOS, one might have to click on Close&Load and repeat the above steps to authenticate each data source connection.
+
+
+Step 1: With Power Query editor opened, load the drug_administrations.txt file.
+
+Step 2: Keep only columns prescription_date and prescribing_doctor_id.
+
+Hint
+- Select columns prescription_date and prescribing_doctor_id by holding down the SHIFT key and clicking both.
+- With both columns selected, right-click either column header from the data preview pane and select Remove Other Columns from the list of drop-down options.
+
+Note: there are alternative ways to keep only the selected columns
+
+Step 3: Rename this new query: prescription_dates_by_doctor.
+
+
+Extracting PDF Data
+
+We have been sent another data file to be prepped. This PDF file is a list of 11 survey questions that are distributed to patients who had a recent hospital encounter.
+
+Our task will be to load this content into Power Query.
+
+Step 1: With the Power Query editor open, load the Patient Experience Survey Template PDF file.
+In the "Navigator" pop-up window, assess the preview options and select the one that includes all 11 survey questions.
+
+Step 2: There’s a lot of unnecessary content in here! Keep only the first and last columns.
+
+Hint
+You can keep only the first and last column by clicking on Choose Columns from the Home tab of the Power Query ribbon and checking off only "Column1" and "Column12".
+Another method could be to SHIFT+click the header of "Column2" to "Column11" and type DELETE.
+
+
+Handling errors
+
+We need to analyze the Patient Satisfaction Results dataset for a specific range of birth dates.
+However, it's mentioned that there appears to be an issue with the birth_date column.
+
+In this phase, we will use built-in Power Query features to identify the error and correct it.
+
+Step 1: 
+- Open the Power Query editor.
+- Load the dataset patient_satisfaction_results.csv.
+- Ensure the 'Column distribution' and 'Column profile' features are enabled.
+
+Step 2:
+- Locate the birth_date column. Let's investigate why no Column distribution or Column profile information is rendered for this field.
+- Select Keep Errors for this column to identify the value causing the error.
+
+Step 3:
+- Delete the "Kept Errors" query step to undo it.
+- Replace Errors with the proper date format, "05/3/973".
+
+Assessing column quality and missing data
+
+Thee boss warned us that several fields from the patient satisfaction dataset have missing data. 
+It will be up to us to use some of Power Query's features to identify the missing data and correct where possible.
+
+Step 1:
+- Enable the Column quality data preview feature and identify columns with Empty values.
+- Undo the "Filtered Rows" applied step on birth_date.
+
+Step 2: Replace empty values from the patient_gender column with "unspecified".
+
+Step 3: The boss asked us to check over columns ranging from question_1 to question_10.
+We have been instructed to replace any column with fewer than 3% empty cells with that column average based on their respective Column statistics.
+Round the average value up to the nearest whole.
+
+Hint
+Ensure that the Column quality data preview from the View ribbon is selected as on.
+Column question_5 has 2% empty cells, fewer than 5%.
+For question_5, clicking on the column statistics shows the average is 5.52626, or 6.
+Replace "null" with 6 for question_5.
+
+Step 4: Lastly, we have been asked to check over once again columns ranging from question_1 to question_10.
+For any remaining column with fewer than 5% empty cells, we have been instructed to remove those rows.
+
+Hint
+Ensure that the Column quality data preview from the View ribbon is selected as on.
+Column question_6 has 4% empty cells, fewer than 5%.
+Use the Remove Empty cells command for question_6 by clicking the little arrow (filter) button on the right of the column header in the Query preview.
+
