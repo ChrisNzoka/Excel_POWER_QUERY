@@ -118,3 +118,152 @@ Ensure that the Column quality data preview from the View ribbon is selected as 
 Column question_6 has 4% empty cells, fewer than 5%.
 Use the Remove Empty cells command for question_6 by clicking the little arrow (filter) button on the right of the column header in the Query preview.
 
+
+Removing duplicate data
+
+Dealing with duplicates is important to ensure the accuracy and quality of your data.
+Removing duplicates ensures that the dataset is free from redundant information that could impact the integrity of your analysis.
+
+Our boss warned of some duplicate data in this analysis due to how the survey results were compiled.
+There should only be one survey per patient. In these steps, it will be up to us to assess for and remove any duplicate entries.
+
+Step 1: 
+- Clear the filter on patient_gender column if it is still filtered.
+	Note - do not delete the applied step "Filtered Rows", as it combined other filter steps that we wish to keep.
+- Select the patient_id column. What do you notice about the distinct and unique counts?
+
+Step 2: Sort the dataset by 'patient_id' in ascending order and assess visually for duplicate values.
+
+Step 3: Looks like we have a problem with duplicates! Select Keep duplicates to reveal any duplicated data present in the dataset.
+By keeping the duplicates, these rows now represent all instances where identical entire rows exist more than once.
+Note the distinct and unique counts for patient_id.
+
+Step 4: Now that we have seen at the rows that are duplicated,
+let's go back and clean up that redundant data by first undoing the "Kept Duplicates" step and then using the 'Remove Duplicates' function.
+
+
+Outlier detection
+
+It's come to our attention that some of the survey responses in question_1 to question_10 columns were entered incorrectly.
+The survey question response options range from 1 to 10, so any value outside of that must be addressed before proceeding to the analysis.
+
+In this level, it will be up to us to identify the data entry typos and true outliers (where survey respondents wrote their own value outside the expected range).
+You will be given instructions on how to handle each.
+
+Step 1: Review the column profile for question_1 to question_10 fields to identify any columns with values outside the accepted range of 1-10.
+
+Step 2: The data entry team confirmed they found a typo in the score entry from one of the entries from question_1 to question_10, and they asked us to correct it.
+
+- Any entered value greater than 10 with duplicated digits must be reduced to a single digit. (e.g., 66 should have been 6).
+
+Step 3: Keep our teammates informed of the error correction step by renaming the applied step just generated to "Corrected entry typo".
+
+Step 4: Some entries were out of range, but not due to typos. Unhappy patients sometimes put a negative value as their score. Talk about an outlier!
+
+We've been instructed to replace these instances with a score of 1, the lowest value on the scale.
+
+Step 5: Rename the last two applied steps to specify that they were outlier corrections
+
+
+Text transformations
+
+A request from the patient experience committee has come our way.
+They are looking to derive some insights from the patient satisfaction survey results to support their improvement project.
+Our task will be to conduct the appropriate text transformations in order to derive what they are looking for.
+
+Step 1: The team first requested that you replace the existing 'patient_id' column values in the 'patient_satisfaction_results' query
+to only show the last six characters.
+
+Hint
+With the patient_id column selected, use the Transform tab of the ribbon to select Extract within the Text Column options.
+Select Last characters and enter 6 into the pop-up window.
+
+Step 2: The team now seeks to create a breakdown of diagnosis code categories. The groupings are based on a prefix letter code.
+
+Create a new column with just the first character of the diagnosis column, and name it "diagnosis_category".
+
+
+Step 3: Close and load the query into your Excel Workbook and create a pivot table from the patient_satisfaction_results table.
+
+Calculating age between two dates
+
+It's come to our attention that there are some concerns with the age field in the patient experience survey results. 
+Our boss asked you to investigate by performing your own age calculation and comparing it with what was entered.
+
+Step 1: In the Power Query editor, transform and replace the survey_date column to date only rather than date/time.
+
+Step 2: Add a new column using the 'Subtract Days' function to subtract birth_date from survey_date.
+Hint
+- Hold Control (or Command if using Mac OS) and first select survey_date column header and then birth_date column header to highlight both columns.
+- Under the Add Column ribbon, select Date > Subtract Days.
+
+Step 3: Now, you have computed the patient's age in days. Transform this column to years by dividing by 365.
+
+Step 4: Use the number column rounding options to round the field to 0 decimal places.
+Rename the column "age_calc".
+
+
+Numeric transformations
+
+We've been tasked with delving into the daily census dataset.
+Specifically, the operations team is looking to identify trends in patient flow by the effective date.
+In this phase, we'll need to compare the daily inflow (admissions) vs. outflow (discharges)
+
+Step 1: Select the loaded dailycensus dataset.
+Add a column that calculates discharges minus admissions. Rename the column "net_difference".
+
+Step 2: From the newly created net_difference column, derive a new column to extract the sign of each value.
+Hint
+- With the net_difference column selected, use the Add Column tab to identify the From Number options.
+- Select Information > Sign.
+
+Step 3: The new Sign column will show “-1” for days of negative flow (more admissions than discharges), 
+“1” for positive flow (more discharges than admissions)
+“0” if admissions were equal to discharges.
+
+Close and load this query to your Excel Workbook.
+
+
+Multiple column transformations
+The operations team is pleased with the insights we've given them so far!
+
+Now, they want more information on average occupancy and how the values trend over time.
+This will help them understand which months of the year generate higher workload pressure.
+
+In this exercise, we'll leverage our knowledge of numeric, text, and date/time transformations to get them the necessary insights.
+
+
+Step 1: In the Power Query Editor, remove any filters to Sign if you made any filters from the previous exercise.
+With the dailycensus query selected, add a new column that divides patient_days over budgeted_beds.
+
+Step 2: Convert the newly derived column to percentage, and then rename it to "occupancy".
+
+Step 3: The team wants to look at trends by year and month. Add two new columns derived from the effective_date field.
+
+Create a new column to derive the Year from effective_date.
+Create a new column to derive the Name of Month from effective_date
+
+Step 4: Let's shorten the Month Name field by transforming it to display just the first three characters.
+
+Step 5: Close and load the query into your Excel Workbook and insert a new Pivot Table from the dailycensus table.
+
+Step 6: In your Pivot Table, display the average of occupancy with Month Name in the Rows and Year in _Columns.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
