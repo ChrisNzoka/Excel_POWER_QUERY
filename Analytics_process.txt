@@ -264,3 +264,17 @@ Step 4: Add a column to calculate patient days minus budgeted_beds.
 Label the new column "patientdaysvsbudgeted".
 
 Step 5: Filter the query to only show days where the patient day value was higher than than budgeted beds (patientdaysvsbudgeted > “0”).
+
+Pivoting in Excel Power Query
+Another request from the patient experience committee has landed in your inbox. They are launching an initiative to improve patient satisfaction scores. They had a hunch that female patients scored lower than males, so want to focus on this group.
+
+Additionally, they don't want to see any granular data, so you will have to reshape and aggregate in the Power Query editor.
+
+Step 1: Open the patient_satisfaction_results query. Clear any filters applied to the patient_age.
+
+Step 2: Create a new query from the patient_satisfaction_results query by referencing it.
+Label the new query "avg by hospital and gender".
+
+Step 3: Calculate a new column by adding all survey questions from question_1 to question_10. Label it "total_score".
+
+Step 4: Keep only the newly calculated total_score column plus hospital_site and patient_gender.
