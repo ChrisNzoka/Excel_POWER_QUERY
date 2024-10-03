@@ -250,20 +250,17 @@ Step 5: Close and load the query into your Excel Workbook and insert a new Pivot
 Step 6: In your Pivot Table, display the average of occupancy with Month Name in the Rows and Year in _Columns.
 
 
+Transposing data
+The boss sent over another daily census file to load to our working file, with the heads up that it will require some re-shaping before it's ready for further analysis.
 
+Step 1: Load the dailycensus_2259.xlsx Excel file (sheet dailycensus) into the Power Query editor and name it "dailycensus_2259".
 
+Step 2: Transpose the dataset and promote the first row to headers.
 
+Step 3: Update effective_date to date format.
+If a Change Column Type pop-up appears, select Replace current.
 
+Step 4: Add a column to calculate patient days minus budgeted_beds.
+Label the new column "patientdaysvsbudgeted".
 
-
-
-
-
-
-
-
-
-
-
-
-
+Step 5: Filter the query to only show days where the patient day value was higher than than budgeted beds (patientdaysvsbudgeted > “0”).
