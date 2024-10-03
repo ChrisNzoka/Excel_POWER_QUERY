@@ -62,7 +62,7 @@ Our task will be to load this content into Power Query.
 Step 1: With the Power Query editor open, load the Patient Experience Survey Template PDF file.
 In the "Navigator" pop-up window, assess the preview options and select the one that includes all 11 survey questions.
 
-Step 2: There’s a lot of unnecessary content in here! Keep only the first and last columns.
+Step 2: Thereï¿½s a lot of unnecessary content in here! Keep only the first and last columns.
 
 Hint
 You can keep only the first and last column by clicking on Choose Columns from the Home tab of the Power Query ribbon and checking off only "Column1" and "Column12".
@@ -217,9 +217,9 @@ Hint
 - With the net_difference column selected, use the Add Column tab to identify the From Number options.
 - Select Information > Sign.
 
-Step 3: The new Sign column will show “-1” for days of negative flow (more admissions than discharges), 
-“1” for positive flow (more discharges than admissions)
-“0” if admissions were equal to discharges.
+Step 3: The new Sign column will show ï¿½-1ï¿½ for days of negative flow (more admissions than discharges), 
+ï¿½1ï¿½ for positive flow (more discharges than admissions)
+ï¿½0ï¿½ if admissions were equal to discharges.
 
 Close and load this query to your Excel Workbook.
 
