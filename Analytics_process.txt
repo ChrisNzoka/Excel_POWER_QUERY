@@ -278,3 +278,26 @@ Label the new query "avg by hospital and gender".
 Step 3: Calculate a new column by adding all survey questions from question_1 to question_10. Label it "total_score".
 
 Step 4: Keep only the newly calculated total_score column plus hospital_site and patient_gender.
+
+Step 5: Pivot the hospital_site column to show average oftotal_score. Ensure you select the appropriate aggregation value in the Pivot Column options. Then, close and load to the Excel Workbook.
+
+Step 6: Create a clustered column chart from "avg by hospital and gender" to visualize the results.
+
+Group by transformation
+The patient experience lead for City Medical Center has reached out to you to get some trending data for their median satisfaction results. They put a project plan in place back in February 2023 and want to evaluate if it results in improved scores. Their focus was on question 3 of the patient experience survey: "How would you rate the professionalism of our staff?".
+
+Your task in this exercise will be to shape and aggregate the data as required, and produce a trending plot for them to add to their slide deck.
+
+Step 1: Create a new query from the patient_satisfaction_results query by duplicating it.
+Label the new query "satisfaction trending by hospital".
+
+Step 2: Add a new date column derived from survey_date to display the Start of Month.
+
+Step 3: Perform a Group By transformation, keeping the hospital_site and Start of Month columns.
+Use the Median aggregation operation on question_3 to derive a new column name, "median question 3 score".
+
+Step 4: The report requester was hoping you could send them a summary so that the hospital names are across the top.
+Pivot the hospital_site column, with Values Column displaying the median question 3 score with sum aggregation.
+
+Step 5: Create a line chart in the Excel Workbook to visualize trends. Isolate the plot to just show City Medical Center by using the chart's select data source settings.
+
