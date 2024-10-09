@@ -1,0 +1,24 @@
+# Appending queries
+You are a newly hired data analyst for the Yale New Haven Health System Emergency Department. Your boss has provided you with two data files to be combined. One lists all emergency visits where patients were admitted for further care, and the other lists visits where patients were discharged to their home residences.
+
+Your task will be to combine the datasets to make a master file of all visits for further analysis.
+
+1. In a blank Excel Workbook, open Power Query and import the dept_b_admit.csv and dept_b_discharge.csv files.
+
+2. ...
+- The column arrivalhour_bin has a leading character ' that needs to be removed from each query.
+Hint
+    - Remove the leading ' character by selecting Extract from the Text Column options from the Transform tab of the ribbon.
+    - Select Text After Delimiter, and enter the leading ' character as the Delimiter.
+- Assess remaining column names and data types to ensure they match between the two queries.
+
+3. Append the two queries to create a new query. Name it "dept_b_master".
+
+NOTE: You might see a warning saying, “Information is needed about data privacy”. Click on Continue to open the pop-up window, check the box that states Ignore Privacy Levels checks for this file and click Save.
+
+# Merging queries with left outer join
+The emergency department director requested a triage score breakdown by total visits. They want to understand the distribution of Emergency Severity Index (ESI) scores throughout the data collection period for department b.
+
+ESI levels are numbered 1 through 5, with level 1 indicating the greatest urgency. Visits with ESI from 1 to 3 are considered higher acuity and require higher resources than visits at levels 4 to 5, so keeping track of staffing and resource planning is important.
+
+Your task will be to combine the triage data with the master visit data to prepare this analysis.
