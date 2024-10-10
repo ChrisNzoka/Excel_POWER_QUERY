@@ -22,3 +22,34 @@ The emergency department director requested a triage score breakdown by total vi
 ESI levels are numbered 1 through 5, with level 1 indicating the greatest urgency. Visits with ESI from 1 to 3 are considered higher acuity and require higher resources than visits at levels 4 to 5, so keeping track of staffing and resource planning is important.
 
 Your task will be to combine the triage data with the master visit data to prepare this analysis.
+
+1. Import the dept_b_triage_vitals.csv file.
+
+2. Select the dept_b_master query and perform a merge using a left outer join to dept_b_triage_vitals by matching on PatientID.
+
+3. Expand the esi column from the joined column.
+
+4. Close and load queries to the Excel Workbook and create a Pivot Table to assess total PatientID counts by esi level. The pivot table can be added to a new worksheet.
+
+# Merging queries with inner join
+At the latest departmental meeting, the chief Emergency Physician mentioned they had noticed an increase in patients presenting to the emergency department for abdominal pain.
+
+You must combine the emergency visit data with the visit chief complaint data to assess this relationship. They are also interested in appropriately assessing the admission rate to plan for resources.
+
+Admission Rate is calculated as the percentage of total visits with disposition of "admit" out of total emergency department visits.
+
+Admission Rate (%) = visits with admit disposition / total visits
+
+1. Import the dept_b_chief_complaint.csv file.
+
+2. Pivot the Attribute column, utilizing Values as the Values Column.`
+
+3. ...
+- Remove all columns other than PatientID, dep_name, and cc_abdominalpain and filter out any rows where cc_abdominalpain does not equal 1.
+- Rename the query "dept_b_cc_abdominalpain".
+
+4. Perform an inner join to create a new query, by joining the dept_b_master query with the dept_b_chief_complaint query, using PatientID as the common column.
+
+5. Expand the merged column to include cc_abdominalpain, and name the new query "dept_b_abdominalpain".
+
+6. Review the disposition breakdown of Admits vs. Discharge using the column profiling features with column profiling set based on the entire dataset.
