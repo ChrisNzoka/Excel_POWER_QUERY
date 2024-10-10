@@ -53,3 +53,94 @@ Admission Rate (%) = visits with admit disposition / total visits
 5. Expand the merged column to include cc_abdominalpain, and name the new query "dept_b_abdominalpain".
 
 6. Review the disposition breakdown of Admits vs. Discharge using the column profiling features with column profiling set based on the entire dataset.
+
+# Custom conditional columns
+The emergency department team now seeks to investigate the impact of patients presenting with a fever on their admission likelihood.
+
+Your task will be to create a new column to identify the status of a fever based on the reported temperature at the time of triage vitals assessment.
+
+1. In the dept_b_master query, use the Column from Examples feature based on selected column disposition to create a new column where "Discharge" is represented as 0 and "Admit" is represented as 1. Name the new column “admit”.
+
+2. Modify the earlier "Expanded dept_b_triage_vitals" applied step to include all columns except for PatientID and dep_name.
+
+3. Create a custom conditional column called "fever" based on triage_vital_temp.
+
+If the recorded temperature is not recorded, it should show null; otherwise, if 100.4 degrees Fahrenheit or higher, it should display 1, or 0 if below 100.4 degrees Fahrenheit.
+
+# Advanced conditional columns
+The nurse manager of your department has requested an analysis of visits during their after-hours periods to determine if staffing is well aligned with demand. They also want to assess a breakdown of severity scores (ESI) during this after-hours period.
+
+You must create a grouping to isolate visits during the specified range.
+
+Note the following time range bins define the hour range for patient arrivals within the arrivalhour_bin column:
+
+07-10: (07:00 am - 10:59 am)
+11-14: (11:00 am - 2:59 pm)
+15-18: (3:00 pm - 6:59 pm)
+19-22: (7:00 pm - 10:59 pm)
+23-02: (11:00 pm - 2:59 am)
+03-06: (3:00 am - 6:59 am)
+
+1. In the dept_b_master query, undo any filters based on fever or admit.
+
+2. Create a new column called "afterhours" to denote if a visit had a weekend arrivalday (either Saturday or Sunday) and arrived between 7:00 pm and 6:59 am.
+
+Note: you must use brackets to contain or logical operators.
+Hint
+- Select Custom Column from the Add Column section of the ribbon.
+- In the Custom Column pop-up window, enter the column name "afterhours" and conditional code in a structure such as:
+if (___ = "Saturday" or ___ = "Sunday") 
+    and (___ = "19-22" 
+        or ___ = "___" 
+        ...) 
+then 1 else 0
+
+3. Close and load queries to the Excel Workbook and navigate to the dept_b_master tab.
+
+4. Create a pivot table from the dept_b_master table on a new worksheet and display after-hours visits vs. regular hours visits by esi score to display the total count of visits.
+
+Note: you might need to select Data > Refresh All from the Excel workbook menu to reflect all new columns added
+
+# Calculating early warning system scores
+Early Warning System (EWS) scores are instruments hospital care teams utilize to identify initial indicators of clinical deterioration, enabling prompt intervention and management.
+
+The program team of your hospital has asked you to classify their emergency visit data by EWS scores according to the criteria below:
+[heart Rate] = "null" --- null
+[heart Rate] <= 40 --- 2
+[heart Rate] = "41-50" --- 1
+[heart Rate] = "51-100" --- 0
+[heart Rate] = "101-110" --- 1
+[heart Rate] = "111-129" --- 2
+[heart Rate] >= 130 --- 3
+else 3
+
+1. In the query dept_b_master, add a new column, "hrscore" that classifies the heart rate value (triage_vital_hr) based on Early Warning System (EWS) scores above.
+
+Your custom column syntax should look like this:
+
+if ___ = null then null 
+    else if ___ <= 40 then ___
+    else if ___ <= 50 then ___
+    ...
+else 3
+
+2. Create a second column that classifies systolic blood pressure values (triage_vital_sbp) based on the EWS scores. Name it "sbpscore".
+Hint
+You can create a Custom Column with syntax structured as follows:
+if ___ = null then null 
+    else if ___ <= 70 then 3
+    else if ___ <= 80 then 2
+    else if ___ <= 100 then 1
+   ... 
+else 3
+
+3. Create a final EWS score column to classify respiratory rate values (triage_vital_rr) based on EWS scores and name it "rrscore".
+
+4. Add the scores up into a new total score column and sort in descending order. Name it "ewsscore".
+
+# Grouped index columns
+The pharmacy team has sent a new data file with all the medication information collected for each patient who visited the emergency department. It includes each PatientID, the types of medications they are using, and the total medications for each.
+
+Your task will be to enhance this dataset by adding a grouped index medicationrankID to count unique medication types for each PatientID, sorted by top medication type by total medications.
+
+1. 
