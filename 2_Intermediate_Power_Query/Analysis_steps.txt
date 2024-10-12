@@ -143,4 +143,16 @@ The pharmacy team has sent a new data file with all the medication information c
 
 Your task will be to enhance this dataset by adding a grouped index medicationrankID to count unique medication types for each PatientID, sorted by top medication type by total medications.
 
-1. 
+1. ...
+- Remove any filters on the ewsscore column if done in the previous exercise.
+- Import the dept_b_medications.csv file.
+
+2. Group the data by PatientID, using the "All Rows" aggregation and name the new column "patientid_grouped".
+
+3. Add a custom column, "sortedgroup", to sort tables contained within the patientid_grouped column in descending order by total.
+Note: You must use the M function Table.Sort(), using patientid_grouped as the first argument.
+
+4. Add a custom column, "groupedindex" to add an index column (starting from 1) called medicationrankID to the tables contained within the sortedgroup column.
+Note: You will need to use the M function Table.AddIndexColumn(), using sortedgroup as the first argument.
+
+5. Delete the patientid, patientid_grouped and sortedgroup columns.
