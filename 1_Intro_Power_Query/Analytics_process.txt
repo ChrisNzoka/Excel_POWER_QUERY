@@ -13,7 +13,7 @@ Step 2: Load the dailycensus_7665.xlsx Excel file (sheet dailycensus) into Power
 
 Step 3: The column headers need to be corrected. Use the Remove Rows feature in the Home ribbon to remove the first row.
 
-Step 4: Next, you need to make the column headers correctly display their name by selecting 'Use First Row as Headers' from the 'Transform section' of the "Home ribbon" tab.
+Step 4: Next, we need to make the column headers correctly display their name by selecting 'Use First Row as Headers' from the 'Transform section' of the "Home ribbon" tab.
 
 Step 5: Now, update the effective_date field to type Date.
 
@@ -65,7 +65,7 @@ In the "Navigator" pop-up window, assess the preview options and select the one 
 Step 2: There�s a lot of unnecessary content in here! Keep only the first and last columns.
 
 Hint
-You can keep only the first and last column by clicking on Choose Columns from the Home tab of the Power Query ribbon and checking off only "Column1" and "Column12".
+We can keep only the first and last column by clicking on Choose Columns from the Home tab of the Power Query ribbon and checking off only "Column1" and "Column12".
 Another method could be to SHIFT+click the header of "Column2" to "Column11" and type DELETE.
 
 
@@ -121,8 +121,8 @@ Use the Remove Empty cells command for question_6 by clicking the little arrow (
 
 Removing duplicate data
 
-Dealing with duplicates is important to ensure the accuracy and quality of your data.
-Removing duplicates ensures that the dataset is free from redundant information that could impact the integrity of your analysis.
+Dealing with duplicates is important to ensure the accuracy and quality of our data.
+Removing duplicates ensures that the dataset is free from redundant information that could impact the integrity of our analysis.
 
 Our boss warned of some duplicate data in this analysis due to how the survey results were compiled.
 There should only be one survey per patient. In these steps, it will be up to us to assess for and remove any duplicate entries.
@@ -130,7 +130,7 @@ There should only be one survey per patient. In these steps, it will be up to us
 Step 1: 
 - Clear the filter on patient_gender column if it is still filtered.
 	Note - do not delete the applied step "Filtered Rows", as it combined other filter steps that we wish to keep.
-- Select the patient_id column. What do you notice about the distinct and unique counts?
+- Select the patient_id column. What can we notice about the distinct and unique counts?
 
 Step 2: Sort the dataset by 'patient_id' in ascending order and assess visually for duplicate values.
 
@@ -148,7 +148,7 @@ It's come to our attention that some of the survey responses in question_1 to qu
 The survey question response options range from 1 to 10, so any value outside of that must be addressed before proceeding to the analysis.
 
 In this level, it will be up to us to identify the data entry typos and true outliers (where survey respondents wrote their own value outside the expected range).
-You will be given instructions on how to handle each.
+We will be given instructions on how to handle each.
 
 Step 1: Review the column profile for question_1 to question_10 fields to identify any columns with values outside the accepted range of 1-10.
 
@@ -171,7 +171,7 @@ A request from the patient experience committee has come our way.
 They are looking to derive some insights from the patient satisfaction survey results to support their improvement project.
 Our task will be to conduct the appropriate text transformations in order to derive what they are looking for.
 
-Step 1: The team first requested that you replace the existing 'patient_id' column values in the 'patient_satisfaction_results' query
+Step 1: The team first requested that we replace the existing 'patient_id' column values in the 'patient_satisfaction_results' query
 to only show the last six characters.
 
 Hint
@@ -183,12 +183,12 @@ Step 2: The team now seeks to create a breakdown of diagnosis code categories. T
 Create a new column with just the first character of the diagnosis column, and name it "diagnosis_category".
 
 
-Step 3: Close and load the query into your Excel Workbook and create a pivot table from the patient_satisfaction_results table.
+Step 3: Close and load the query into our Excel Workbook and create a pivot table from the patient_satisfaction_results table.
 
 Calculating age between two dates
 
 It's come to our attention that there are some concerns with the age field in the patient experience survey results. 
-Our boss asked you to investigate by performing your own age calculation and comparing it with what was entered.
+Our boss asked us to investigate by performing our own age calculation and comparing it with what was entered.
 
 Step 1: In the Power Query editor, transform and replace the survey_date column to date only rather than date/time.
 
@@ -197,7 +197,7 @@ Hint
 - Hold Control (or Command if using Mac OS) and first select survey_date column header and then birth_date column header to highlight both columns.
 - Under the Add Column ribbon, select Date > Subtract Days.
 
-Step 3: Now, you have computed the patient's age in days. Transform this column to years by dividing by 365.
+Step 3: Now, we have computed the patient's age in days. Transform this column to years by dividing by 365.
 
 Step 4: Use the number column rounding options to round the field to 0 decimal places.
 Rename the column "age_calc".
@@ -221,7 +221,7 @@ Step 3: The new Sign column will show �-1� for days of negative flow (more a
 �1� for positive flow (more discharges than admissions)
 �0� if admissions were equal to discharges.
 
-Close and load this query to your Excel Workbook.
+Close and load this query to our Excel Workbook.
 
 
 Multiple column transformations
@@ -233,7 +233,7 @@ This will help them understand which months of the year generate higher workload
 In this exercise, we'll leverage our knowledge of numeric, text, and date/time transformations to get them the necessary insights.
 
 
-Step 1: In the Power Query Editor, remove any filters to Sign if you made any filters from the previous exercise.
+Step 1: In the Power Query Editor, remove any filters to Sign if we made any filters from the previous exercise.
 With the dailycensus query selected, add a new column that divides patient_days over budgeted_beds.
 
 Step 2: Convert the newly derived column to percentage, and then rename it to "occupancy".
@@ -245,9 +245,9 @@ Create a new column to derive the Name of Month from effective_date
 
 Step 4: Let's shorten the Month Name field by transforming it to display just the first three characters.
 
-Step 5: Close and load the query into your Excel Workbook and insert a new Pivot Table from the dailycensus table.
+Step 5: Close and load the query into our Excel Workbook and insert a new Pivot Table from the dailycensus table.
 
-Step 6: In your Pivot Table, display the average of occupancy with Month Name in the Rows and Year in _Columns.
+Step 6: In our Pivot Table, display the average of occupancy with Month Name in the Rows and Year in _Columns.
 
 
 Transposing data
@@ -266,9 +266,9 @@ Label the new column "patientdaysvsbudgeted".
 Step 5: Filter the query to only show days where the patient day value was higher than than budgeted beds (patientdaysvsbudgeted > “0”).
 
 Pivoting in Excel Power Query
-Another request from the patient experience committee has landed in your inbox. They are launching an initiative to improve patient satisfaction scores. They had a hunch that female patients scored lower than males, so want to focus on this group.
+Another request from the patient experience committee has landed in our inbox. They are launching an initiative to improve patient satisfaction scores. They had a hunch that female patients scored lower than males, so want to focus on this group.
 
-Additionally, they don't want to see any granular data, so you will have to reshape and aggregate in the Power Query editor.
+Additionally, they don't want to see any granular data, so we will have to reshape and aggregate in the Power Query editor.
 
 Step 1: Open the patient_satisfaction_results query. Clear any filters applied to the patient_age.
 
@@ -279,14 +279,14 @@ Step 3: Calculate a new column by adding all survey questions from question_1 to
 
 Step 4: Keep only the newly calculated total_score column plus hospital_site and patient_gender.
 
-Step 5: Pivot the hospital_site column to show average oftotal_score. Ensure you select the appropriate aggregation value in the Pivot Column options. Then, close and load to the Excel Workbook.
+Step 5: Pivot the hospital_site column to show average oftotal_score. Ensure we select the appropriate aggregation value in the Pivot Column options. Then, close and load to the Excel Workbook.
 
 Step 6: Create a clustered column chart from "avg by hospital and gender" to visualize the results.
 
 Group by transformation
-The patient experience lead for City Medical Center has reached out to you to get some trending data for their median satisfaction results. They put a project plan in place back in February 2023 and want to evaluate if it results in improved scores. Their focus was on question 3 of the patient experience survey: "How would you rate the professionalism of our staff?".
+The patient experience lead for City Medical Center has reached out to us to get some trending data for their median satisfaction results. They put a project plan in place back in February 2023 and want to evaluate if it results in improved scores. Their focus was on question 3 of the patient experience survey: "How can we rate the professionalism of our staff?".
 
-Your task in this exercise will be to shape and aggregate the data as required, and produce a trending plot for them to add to their slide deck.
+Our task in this exercise will be to shape and aggregate the data as required, and produce a trending plot for them to add to their slide deck.
 
 Step 1: Create a new query from the patient_satisfaction_results query by duplicating it.
 Label the new query "satisfaction trending by hospital".
@@ -296,7 +296,7 @@ Step 2: Add a new date column derived from survey_date to display the Start of M
 Step 3: Perform a Group By transformation, keeping the hospital_site and Start of Month columns.
 Use the Median aggregation operation on question_3 to derive a new column name, "median question 3 score".
 
-Step 4: The report requester was hoping you could send them a summary so that the hospital names are across the top.
+Step 4: The report requester was hoping we could send them a summary so that the hospital names are across the top.
 Pivot the hospital_site column, with Values Column displaying the median question 3 score with sum aggregation.
 
 Step 5: Create a line chart in the Excel Workbook to visualize trends. Isolate the plot to just show City Medical Center by using the chart's select data source settings.
